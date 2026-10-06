@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 첫 웹페이지</title>
+    <!-- 꾸미기 파일(CSS) 불러오기 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 다크/라이트 모드 스위치 기능 불러오기 -->
+    <script src="theme.js"></script>
+</head>
+<body>
+    <!-- 우측 상단 다크/라이트 모드 스위치 -->
+    <button id="theme-toggle" class="theme-toggle" role="switch" aria-label="다크 모드"><span class="knob"></span></button>
+    <div class="page">
+
+        <header class="hero">
+            <h1>안녕하세요! 나의 첫 웹페이지입니다</h1>
+            <p>HTML로 만든 첫 번째 웹페이지예요.</p>
+        </header>
+
+        <section class="card">
+            <h2>자기소개</h2>
+            <p>이름: 홍길동</p>
+            <p>취미: 코딩, 독서, 음악 감상</p>
+        </section>
+
+        <section class="card">
+            <h2>좋아하는 것들</h2>
+            <ul>
+                <li>프로그래밍</li>
+                <li>여행</li>
+                <li>맛있는 음식</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>추천 사이트</h2>
+            <nav class="toc">
+                <a href="https://www.google.com">구글로 이동하기</a>
+                <a href="html-guide.html">HTML 처음 배우기</a>
+                <a href="airport-words.html">공항 영어 단어장</a>
+            </nav>
+        </section>
+
+        <footer>© 2026 나의 첫 웹페이지</footer>
+
+    </div>
+</body>
+</html>

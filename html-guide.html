@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 처음 배우기</title>
+    <!-- 꾸미기 파일(CSS) 불러오기. HTML 공부할 때는 신경 쓰지 않아도 됩니다. -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 다크/라이트 모드 스위치 기능 불러오기 -->
+    <script src="theme.js"></script>
+</head>
+<body>
+    <!-- 우측 상단 다크/라이트 모드 스위치 -->
+    <button id="theme-toggle" class="theme-toggle" role="switch" aria-label="다크 모드"><span class="knob"></span></button>
+    <div class="page">
+
+        <header class="hero">
+            <h1>HTML 처음 배우기</h1>
+            <p>HTML을 전혀 몰라도 괜찮습니다. 위에서부터 차근차근 읽어 보세요.</p>
+        </header>
+
+        <nav class="card toc">
+            <a href="#what">1. HTML이란?</a>
+            <a href="#tag">2. 태그</a>
+            <a href="#structure">3. 기본 구조</a>
+            <a href="#heading">4. 제목과 문단</a>
+            <a href="#text">5. 글자 꾸미기</a>
+            <a href="#list">6. 목록</a>
+            <a href="#link">7. 링크</a>
+            <a href="#image">8. 이미지</a>
+            <a href="#table">9. 표</a>
+            <a href="#box">10. div와 span</a>
+            <a href="#form">11. 입력 폼</a>
+            <a href="#comment">12. 주석</a>
+            <a href="#css">13. CSS 맛보기</a>
+            <a href="#practice">14. 직접 해보기</a>
+        </nav>
+
+        <!-- 1 -->
+        <section class="card" id="what">
+            <h2>1. HTML이란?</h2>
+            <p><b>HTML</b>은 웹페이지의 <b>뼈대</b>를 만드는 언어입니다.</p>
+            <p>집에 비유하면 이렇습니다.</p>
+            <ul>
+                <li><b>HTML</b>: 벽, 방, 문 같은 집의 구조 → "여기는 제목, 여기는 문단"</li>
+                <li><b>CSS</b>: 벽지, 페인트 같은 꾸미기 → "제목은 빨간색, 크게"</li>
+                <li><b>JavaScript</b>: 전기, 수도 같은 기능 → "버튼을 누르면 뭔가 일어남"</li>
+            </ul>
+            <p class="tip">💡 HTML은 프로그래밍 언어라기보다 <b>"이 내용은 무엇이다"라고 표시하는 언어</b>입니다. 어렵게 생각하지 않아도 됩니다.</p>
+        </section>
+
+        <!-- 2 -->
+        <section class="card" id="tag">
+            <h2>2. 태그: HTML의 기본 단위</h2>
+            <p>HTML은 <b>태그</b>로 내용을 감싸서 만듭니다. 태그는 <code>&lt;</code>와 <code>&gt;</code> 꺾쇠괄호로 씁니다.</p>
+            <pre>&lt;p&gt;안녕하세요&lt;/p&gt;</pre>
+            <ul>
+                <li><code>&lt;p&gt;</code>: <b>여는 태그</b> (여기서 시작)</li>
+                <li><code>안녕하세요</code>: <b>내용</b></li>
+                <li><code>&lt;/p&gt;</code>: <b>닫는 태그</b> (여기서 끝, 앞에 <code>/</code>가 붙음)</li>
+            </ul>
+            <p>여는 태그부터 닫는 태그까지를 통째로 <b>요소(element)</b>라고 부릅니다.</p>
+            <p class="tip">💡 <code>&lt;br&gt;</code>(줄바꿈)이나 <code>&lt;img&gt;</code>(이미지)처럼 감쌀 내용이 없는 태그는 닫는 태그가 없습니다.</p>
+        </section>
+
+        <!-- 3 -->
+        <section class="card" id="structure">
+            <h2>3. HTML 문서의 기본 구조</h2>
+            <p>모든 HTML 파일은 이 틀로 시작합니다. 외울 필요 없이 복사해서 쓰면 됩니다.</p>
+            <pre>&lt;!DOCTYPE html&gt;          ← "이 파일은 HTML이에요"라는 선언
+&lt;html lang="ko"&gt;         ← HTML 문서 시작 (한국어)
+&lt;head&gt;                   ← 머리: 화면에 안 보이는 정보
+    &lt;meta charset="UTF-8"&gt;  ← 한글이 깨지지 않게 하는 설정
+    &lt;title&gt;페이지 제목&lt;/title&gt;  ← 브라우저 탭에 보이는 이름
+&lt;/head&gt;
+&lt;body&gt;                   ← 몸통: 화면에 보이는 내용은 전부 여기에!
+    &lt;h1&gt;안녕하세요&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            <p class="tip">💡 핵심은 하나입니다. <b>화면에 보일 내용은 <code>&lt;body&gt;</code> 안에 쓴다.</b></p>
+            <p>태그 안에 태그를 넣을 수 있고, 이것을 <b>중첩</b>이라고 합니다. 안쪽 태그는 보기 좋게 들여쓰기(스페이스 4칸)를 합니다.</p>
+        </section>
+
+        <!-- 4 -->
+        <section class="card" id="heading">
+            <h2>4. 제목과 문단</h2>
+            <p>제목은 <code>&lt;h1&gt;</code>부터 <code>&lt;h6&gt;</code>까지 있고, 숫자가 작을수록 큰 제목입니다.</p>
+            <div class="label">코드</div>
+            <pre>&lt;h1&gt;가장 큰 제목&lt;/h1&gt;
+&lt;h2&gt;중간 제목&lt;/h2&gt;
+&lt;h3&gt;작은 제목&lt;/h3&gt;
+&lt;p&gt;이것은 문단입니다.&lt;/p&gt;
+&lt;p&gt;첫째 줄&lt;br&gt;둘째 줄 (br로 줄바꿈)&lt;/p&gt;
+&lt;hr&gt;</pre>
+            <div class="label">결과</div>
+            <div class="result">
+                <h1 style="margin:0">가장 큰 제목</h1>
+                <h2 style="margin:0;color:inherit">중간 제목</h2>
+                <h3 style="margin:0;color:inherit;font-size:1.17em">작은 제목</h3>
+                <p>이것은 문단입니다.</p>
+                <p>첫째 줄<br>둘째 줄 (br로 줄바꿈)</p>
+                <hr>
+            </div>
+            <p class="tip">💡 HTML 코드에서 엔터를 여러 번 쳐도 화면에서는 줄이 바뀌지 않습니다. 줄을 바꾸려면 <code>&lt;br&gt;</code>이나 새 <code>&lt;p&gt;</code>를 써야 합니다. <code>&lt;hr&gt;</code>은 가로선입니다.</p>
+        </section>
+
+        <!-- 5 -->
+        <section class="card" id="text">
+            <h2>5. 글자 꾸미기</h2>
+            <div class="label">코드</div>
+            <pre>&lt;p&gt;&lt;b&gt;굵은 글씨&lt;/b&gt;, &lt;i&gt;기울임 글씨&lt;/i&gt;, &lt;u&gt;밑줄&lt;/u&gt;, &lt;mark&gt;형광펜&lt;/mark&gt;&lt;/p&gt;</pre>
+            <div class="label">결과</div>
+            <div class="result">
+                <p style="margin:0"><b>굵은 글씨</b>, <i>기울임 글씨</i>, <u>밑줄</u>, <mark>형광펜</mark></p>
+            </div>
+        </section>
+
+        <!-- 6 -->
+        <section class="card" id="list">
+            <h2>6. 목록</h2>
+            <p><code>&lt;ul&gt;</code>은 점 목록, <code>&lt;ol&gt;</code>은 번호 목록입니다. 항목 하나하나는 <code>&lt;li&gt;</code>로 감쌉니다.</p>
+            <div class="label">코드</div>
+            <pre>&lt;ul&gt;
+    &lt;li&gt;사과&lt;/li&gt;
+    &lt;li&gt;바나나&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;일어나기&lt;/li&gt;
+    &lt;li&gt;세수하기&lt;/li&gt;
+&lt;/ol&gt;</pre>
+            <div class="label">결과</div>
+            <div class="result">
+                <ul><li>사과</li><li>바나나</li></ul>
+                <ol><li>일어나기</li><li>세수하기</li></ol>
+            </div>
+        </section>
+
+        <!-- 7 -->
+        <section class="card" id="link">
+            <h2>7. 링크</h2>
+            <p>클릭하면 다른 페이지로 이동하는 링크는 <code>&lt;a&gt;</code> 태그로 만듭니다.</p>
+            <div class="label">코드</div>
+            <pre>&lt;a href="https://www.naver.com"&gt;네이버로 가기&lt;/a&gt;</pre>
+            <div class="label">결과</div>
+            <div class="result"><a href="https://www.naver.com" target="_blank">네이버로 가기</a></div>
+            <p>여기서 <code>href="..."</code>처럼 태그에 붙는 추가 정보를 <b>속성(attribute)</b>이라고 합니다.</p>
+            <pre>&lt;a  href="https://www.naver.com" &gt;네이버로 가기&lt;/a&gt;
+ ↑   ↑      ↑
+태그 속성이름 속성값</pre>
+        </section>
+
+        <!-- 8 -->
+        <section class="card" id="image">
+            <h2>8. 이미지</h2>
+            <div class="label">코드</div>
+            <pre>&lt;img src="https://picsum.photos/200/120" alt="예시 사진"&gt;</pre>
+            <div class="label">결과</div>
+            <div class="result"><img src="https://picsum.photos/200/120" alt="예시 사진"></div>
+            <ul>
+                <li><code>src</code>: 이미지 주소. 같은 폴더의 파일이라면 <code>src="cat.jpg"</code>처럼 파일 이름만 써도 됩니다.</li>
+                <li><code>alt</code>: 이미지가 안 보일 때 대신 나오는 설명</li>
+            </ul>
+        </section>
+
+        <!-- 9 -->
+        <section class="card" id="table">
+            <h2>9. 표</h2>
+            <p><code>&lt;table&gt;</code> 안에 줄(<code>&lt;tr&gt;</code>)을 만들고, 줄 안에 칸(<code>&lt;th&gt;</code> 제목칸 / <code>&lt;td&gt;</code> 일반칸)을 넣습니다.</p>
+            <div class="label">코드</div>
+            <pre>&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;이름&lt;/th&gt;
+        &lt;th&gt;나이&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;철수&lt;/td&gt;
+        &lt;td&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</pre>
+            <div class="label">결과</div>
+            <div class="result">
+                <table>
+                    <tr><th>이름</th><th>나이</th></tr>
+                    <tr><td>철수</td><td>20</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- 10 -->
+        <section class="card" id="box">
+            <h2>10. div와 span: 내용을 묶는 상자</h2>
+            <p><code>&lt;div&gt;</code>와 <code>&lt;span&gt;</code>은 그 자체로는 아무 모양이 없고, 내용을 <b>한 덩어리로 묶을 때</b> 씁니다. 묶어 두면 나중에 CSS로 한꺼번에 꾸밀 수 있습니다.</p>
+            <ul>
+                <li><code>&lt;div&gt;</code>: <b>큰 상자</b>. 한 줄을 통째로 차지합니다. (여러 문단, 목록 등을 묶을 때)</li>
+                <li><code>&lt;span&gt;</code>: <b>작은 상자</b>. 글자 사이에 끼워 넣습니다. (문장 속 단어 몇 개를 묶을 때)</li>
+            </ul>
+            <div class="label">코드</div>
+            <pre>&lt;div&gt;
+    &lt;h3&gt;오늘의 메뉴&lt;/h3&gt;
+    &lt;p&gt;점심은 &lt;span style="color: red"&gt;김치찌개&lt;/span&gt;입니다.&lt;/p&gt;
+&lt;/div&gt;</pre>
+            <div class="label">결과</div>
+            <div class="result">
+                <div>
+                    <h3 style="margin:0;color:inherit;font-size:1.17em">오늘의 메뉴</h3>
+                    <p style="margin-bottom:0">점심은 <span style="color: red">김치찌개</span>입니다.</p>
+                </div>
+            </div>
+            <p class="tip">💡 이 페이지의 흰 상자들도 사실은 <code>&lt;section&gt;</code>(div와 비슷한 상자)에 CSS로 둥근 모서리와 그림자를 준 것입니다.</p>
+        </section>
+
+        <!-- 11 -->
+        <section class="card" id="form">
+            <h2>11. 입력 폼: 글자를 입력받기</h2>
+            <p>회원가입, 검색창처럼 사용자가 무언가를 입력하는 칸은 <code>&lt;input&gt;</code>으로 만듭니다. <code>type</code> 속성에 따라 모양이 달라집니다.</p>
+            <div class="label">코드</div>
+            <pre>&lt;label&gt;이름: &lt;input type="text" placeholder="홍길동"&gt;&lt;/label&gt;&lt;br&gt;
+&lt;label&gt;비밀번호: &lt;input type="password"&gt;&lt;/label&gt;&lt;br&gt;
+&lt;label&gt;&lt;input type="checkbox"&gt; 약관에 동의합니다&lt;/label&gt;&lt;br&gt;
+&lt;label&gt;좋아하는 계절:
+    &lt;select&gt;
+        &lt;option&gt;봄&lt;/option&gt;
+        &lt;option&gt;여름&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/label&gt;&lt;br&gt;
+&lt;button&gt;가입하기&lt;/button&gt;</pre>
+            <div class="label">결과 (직접 입력해 보세요)</div>
+            <div class="result">
+                <label>이름: <input type="text" placeholder="홍길동"></label><br>
+                <label>비밀번호: <input type="password"></label><br>
+                <label><input type="checkbox"> 약관에 동의합니다</label><br>
+                <label>좋아하는 계절:
+                    <select>
+                        <option>봄</option>
+                        <option>여름</option>
+                    </select>
+                </label><br>
+                <button type="button">가입하기</button>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <tr><th>type 값</th><th>모양</th></tr>
+                    <tr><td><code>text</code></td><td>글자 입력칸</td></tr>
+                    <tr><td><code>password</code></td><td>입력하면 ●●● 로 가려지는 칸</td></tr>
+                    <tr><td><code>checkbox</code></td><td>체크 상자</td></tr>
+                    <tr><td><code>date</code></td><td>날짜 고르기</td></tr>
+                </table>
+            </div>
+            <ul>
+                <li><code>placeholder</code>: 칸이 비어 있을 때 흐리게 보이는 안내 글자</li>
+                <li><code>&lt;label&gt;</code>: 입력칸에 이름표를 붙입니다. 글자를 눌러도 칸이 선택됩니다.</li>
+                <li><code>&lt;select&gt;</code>와 <code>&lt;option&gt;</code>: 펼쳐서 고르는 목록</li>
+            </ul>
+            <p class="tip">💡 HTML만으로는 입력한 내용을 저장하거나 보낼 수 없습니다. 그 일은 JavaScript나 서버가 합니다. HTML은 <b>칸을 만드는 것</b>까지예요.</p>
+        </section>
+
+        <!-- 12 -->
+        <section class="card" id="comment">
+            <h2>12. 주석: 나만 보는 메모</h2>
+            <p><code>&lt;!--</code>와 <code>--&gt;</code> 사이에 쓴 글은 <b>화면에 나오지 않습니다.</b> 코드에 설명을 남기거나, 잠깐 숨기고 싶은 부분을 감쌀 때 씁니다.</p>
+            <div class="label">코드</div>
+            <pre>&lt;!-- 여기부터 자기소개 부분 --&gt;
+&lt;p&gt;안녕하세요!&lt;/p&gt;
+&lt;!-- &lt;p&gt;이 문장은 숨겨집니다&lt;/p&gt; --&gt;</pre>
+            <div class="label">결과</div>
+            <div class="result">
+                <!-- 여기부터 자기소개 부분 -->
+                <p style="margin:0">안녕하세요!</p>
+                <!-- <p>이 문장은 숨겨집니다</p> -->
+            </div>
+            <p class="tip">💡 VS Code에서는 줄을 선택하고 <b>Ctrl + /</b> 를 누르면 주석을 바로 넣거나 뺄 수 있습니다.</p>
+        </section>
+
+        <!-- 13 -->
+        <section class="card" id="css">
+            <h2>13. CSS 맛보기: 꾸미기의 시작</h2>
+            <p>HTML이 뼈대라면 <b>CSS는 옷</b>입니다. 글자 색, 크기, 배경 등을 정합니다. CSS를 쓰는 방법은 두 가지입니다.</p>
+
+            <h3>방법 1. 태그에 바로 쓰기 (style 속성)</h3>
+            <div class="label">코드</div>
+            <pre>&lt;p style="color: blue; font-size: 24px;"&gt;파랗고 큰 글씨&lt;/p&gt;
+&lt;p style="background: yellow;"&gt;노란 배경&lt;/p&gt;</pre>
+            <div class="label">결과</div>
+            <div class="result">
+                <p style="color: blue; font-size: 24px; margin-top:0">파랗고 큰 글씨</p>
+                <p style="background: yellow; color: #222; margin-bottom:0">노란 배경</p>
+            </div>
+            <p>규칙은 <code>속성이름: 값;</code> 입니다. 여러 개는 <code>;</code>로 이어 씁니다.</p>
+
+            <h3>방법 2. CSS 파일을 따로 만들어 불러오기</h3>
+            <p>페이지가 많아지면 파일 하나에 모아 두는 것이 편합니다. 이 폴더의 세 페이지도 모두 <b>style.css</b> 하나를 같이 씁니다.</p>
+            <div class="label">HTML 파일의 &lt;head&gt; 안</div>
+            <pre>&lt;link rel="stylesheet" href="style.css"&gt;</pre>
+            <div class="label">style.css 파일</div>
+            <pre>h1 {
+    color: purple;      /* 모든 h1 글자를 보라색으로 */
+}
+p {
+    font-size: 18px;    /* 모든 문단 글자를 18px로 */
+}</pre>
+            <div class="table-wrap">
+                <table>
+                    <tr><th>자주 쓰는 CSS</th><th>뜻</th><th>예시</th></tr>
+                    <tr><td><code>color</code></td><td>글자 색</td><td><code>color: red;</code></td></tr>
+                    <tr><td><code>background</code></td><td>배경 색</td><td><code>background: pink;</code></td></tr>
+                    <tr><td><code>font-size</code></td><td>글자 크기</td><td><code>font-size: 20px;</code></td></tr>
+                    <tr><td><code>text-align</code></td><td>정렬</td><td><code>text-align: center;</code></td></tr>
+                    <tr><td><code>border</code></td><td>테두리</td><td><code>border: 1px solid black;</code></td></tr>
+                </table>
+            </div>
+            <p class="tip">💡 아래 <b>직접 해보기</b> 상자에서 <code>&lt;h1 style="color: red"&gt;</code>처럼 바꿔서 실행해 보세요!</p>
+        </section>
+
+        <!-- 14 -->
+        <section class="card" id="practice">
+            <h2>14. 직접 해보기</h2>
+            <p>아래 상자의 코드를 마음대로 고친 뒤 <b>[실행하기]</b> 버튼을 눌러 보세요. 결과가 바로 아래에 나타납니다.</p>
+            <textarea id="code">&lt;h1&gt;내 이름은 ○○○입니다&lt;/h1&gt;
+&lt;p&gt;&lt;b&gt;HTML&lt;/b&gt;을 배우고 있어요!&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;좋아하는 음식: 피자&lt;/li&gt;
+    &lt;li&gt;좋아하는 색: 파랑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href="https://www.google.com"&gt;구글&lt;/a&gt;</textarea>
+            <p><button onclick="run()">▶ 실행하기</button></p>
+            <iframe id="preview" title="실행 결과"></iframe>
+        </section>
+
+        <section class="card">
+            <h2>정리: 자주 쓰는 태그 한눈에 보기</h2>
+            <div class="table-wrap">
+                <table>
+                    <tr><th>태그</th><th>뜻</th></tr>
+                    <tr><td><code>&lt;h1&gt;</code> ~ <code>&lt;h6&gt;</code></td><td>제목 (1이 제일 큼)</td></tr>
+                    <tr><td><code>&lt;p&gt;</code></td><td>문단</td></tr>
+                    <tr><td><code>&lt;br&gt;</code></td><td>줄바꿈 (닫는 태그 없음)</td></tr>
+                    <tr><td><code>&lt;hr&gt;</code></td><td>가로선 (닫는 태그 없음)</td></tr>
+                    <tr><td><code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code></td><td>굵게, 기울임, 밑줄</td></tr>
+                    <tr><td><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code></td><td>점 목록, 번호 목록, 목록 항목</td></tr>
+                    <tr><td><code>&lt;a href=""&gt;</code></td><td>링크</td></tr>
+                    <tr><td><code>&lt;img src="" alt=""&gt;</code></td><td>이미지 (닫는 태그 없음)</td></tr>
+                    <tr><td><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code></td><td>표, 줄, 제목칸, 칸</td></tr>
+                    <tr><td><code>&lt;div&gt;</code>, <code>&lt;span&gt;</code></td><td>큰 묶음 상자, 작은 묶음 상자</td></tr>
+                    <tr><td><code>&lt;input type=""&gt;</code></td><td>입력칸 (닫는 태그 없음)</td></tr>
+                    <tr><td><code>&lt;select&gt;</code>, <code>&lt;option&gt;</code></td><td>펼쳐서 고르는 목록, 그 항목</td></tr>
+                    <tr><td><code>&lt;button&gt;</code></td><td>버튼</td></tr>
+                    <tr><td><code>&lt;!-- --&gt;</code></td><td>주석 (메모, 화면에 안 보임)</td></tr>
+                    <tr><td><code>style=""</code></td><td>태그에 바로 CSS 쓰기</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>다음 단계</h2>
+            <ol>
+                <li>같은 폴더의 <a href="index.html">index.html</a>을 메모장이나 VS Code로 열고 내용을 바꿔 보세요.</li>
+                <li>저장한 뒤 브라우저에서 새로고침(F5)하면 바뀐 결과가 보입니다.</li>
+                <li>아무 웹사이트에서 마우스 오른쪽 클릭 → <b>"페이지 소스 보기"</b>를 누르면 그 사이트의 HTML을 볼 수 있습니다. 이 페이지도 마찬가지예요!</li>
+            </ol>
+        </section>
+
+        <footer>HTML 처음 배우기 · 천천히, 하나씩 해보면 됩니다 🙂</footer>
+
+    </div>
+
+    <!-- 직접 해보기 버튼이 동작하게 하는 코드(JavaScript)입니다. 지금은 몰라도 됩니다. -->
+    <script>
+        function run() {
+            document.getElementById("preview").srcdoc = document.getElementById("code").value;
+        }
+        run();
+    </script>
+</body>
+</html>
